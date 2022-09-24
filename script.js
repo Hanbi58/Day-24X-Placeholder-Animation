@@ -10,6 +10,7 @@ setTimeout(() => {
 function removeLoading() {
   image.classList.remove("loadingImage");
   text.classList.remove("loadingText");
+  text.innerText = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, ipsum!`;
   overlay.classList.remove("hidden");
   setTimeout(() => {
     overlay.classList.add("hidden");
