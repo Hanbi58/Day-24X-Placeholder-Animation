@@ -21,6 +21,20 @@ body {
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.184);
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 5;
+}
+.overlay.hidden {
+  opacity: 0;
+  transition: all 1s linear;
 }
 
 .image {
@@ -31,22 +45,38 @@ body {
   background-repeat: no-repeat;
 }
 
+.image.loadingImage {
+  background-image: linear-gradient(
+    to right,
+    #ffffff 0%,
+    #f3f3f3 10%,
+    #f3f3f3 15%,
+    #ffffff 20%,
+    #ffffff 100%
+  );
+  background-size: 200% 100%;
+  animation: bgPos 1s linear infinite;
+}
+
 .text {
   margin: 30px auto;
   width: 300px;
   text-align: center;
+  position: relative;
 }
-
-.animated-bg {
+.text.loadingText {
   background-image: linear-gradient(
     to right,
-    #f6f7f8 0%,
-    #edeef1 10%,
-    #f6f7f8 20%,
-    #f6f7f8 100%
+    #ffffff 0%,
+    #cccccc 10%,
+    #cccccc 15%,
+    #ffffff 20%,
+    #ffffff 100%
   );
-  background-size: 200% 100%;
-  animation: bgPos 1s linear infinite;
+  background-size: 300% 100%;
+  animation: bgPos 1.9s linear infinite;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
 }
 
 @keyframes bgPos {
@@ -55,6 +85,6 @@ body {
   }
 
   100% {
-    background-position: -150% 0;
+    background-position: -200% 0;
   }
 }
